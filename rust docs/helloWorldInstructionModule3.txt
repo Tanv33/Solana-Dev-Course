@@ -1,0 +1,12 @@
+********** Rust *********
+
+=> Hello World
+
+1. Deep access in Rust. Like we do in javascript
+ => item.name (js) === item::name (rs) example: use solana_program::account_info::AccountInfo
+
+2. Declaring Functions in Rust
+ => fn process_instruction()
+
+3. For Reference 
+ => &
