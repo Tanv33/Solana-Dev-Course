@@ -1,0 +1,115 @@
+Create a Basic Program, Part 1 - Handle Instruction Data
+
+
+
+1. Variables
+ => let age = 33;
+
+2. Mutable (By default the variables are immutable)
+ => let mut mutable_age = 33;
+
+3. Structs === (Class in js)
+ => struct User {
+    active: bool,
+    email: String,
+    age: u64
+   }
+ => let mut user1 = User {
+    active: true,
+    email: String::from("test@test.com"),
+    age: 36
+   };
+
+4. To get or set a specific value from a struct, we use dot notation.
+ => user1.age = 37;
+
+5. Enumerations
+ => enum LightStatus {
+    On,
+    Off
+   }
+
+6. You can also embed values into enum variants, similar to adding fields to a struct.
+ => enum LightStatus {
+    On {
+        color: String
+    },
+    Off
+   }
+
+   let light_status = LightStatus::On { color: String::from("red") };
+
+7. Match statements
+=> enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter
+  }
+
+  fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25
+    }
+  }
+
+8. Implementations (Class program/function) : The impl keyword is used in Rust to define a type's implementations. Functions and constants can both be defined in an implementation.
+
+ => struct Example {
+    number: i32
+   }
+
+   impl Example {
+    fn boo() {
+        println!("boo! Example::boo() was called!");
+    }
+
+    fn answer(&mut self) {
+        self.number += 42;
+    }
+
+    fn get_number(&self) -> i32 {
+        self.number
+    }
+  }
+
+Example::boo();
+let mut example = Example { number: 3 };
+example.answer();
+
+9. Deserialize instruction data: Instruction data is passed to the program as a byte array, so you need a way to deterministically convert that array into an instance of the instruction enum type.
+
+In previous modules, we used Borsh for client-side serialization and deserialization. To use Borsh program-side, we use the borsh crate. This crate provides traits for BorshDeserialize and BorshSerialize that you can apply to your types using the derive attribute.
+
+To make deserializing instruction data simple, you can create a struct representing the data and use the derive attribute to apply the BorshDeserialize trait to the struct. This implements the methods defined in BorshDeserialize, including the try_from_slice method that we'll be using to deserialize the instruction data.
+
+ => #[derive(BorshDeserialize)]
+    struct NoteInstructionPayload {
+    id: u64,
+    title: String,
+    body: String
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

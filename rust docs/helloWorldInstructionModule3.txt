@@ -10,3 +10,9 @@
 
 3. For Reference 
  => &
+
+
+4. Module System
+ * Modules - A module separates code into logical units to provide isolated namespaces for organization, scope, and privacy of paths
+ * Crates - A crate is either a library or an executable program. The source code for a crate is usually subdivided into multiple modules.
+ * Packages - A package contains a collection of crates as well as a manifest file for specifying metadata and dependencies between packages
