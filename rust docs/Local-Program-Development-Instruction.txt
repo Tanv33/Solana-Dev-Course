@@ -1,0 +1,24 @@
+To get started with Solana locally, you’ll first need to install Rust and the Solana CLI.
+
+winver => To check windows version in the CLI.
+
+
+solana config get => To check the default/current config in your system.
+
+solana config set --url localhost | devnet | mainnet-beta => To set the RPC Url to the devnet, local or mainnet-beta.
+
+solana config set --keypair ~/<FILE_PATH> =>  To change the Keypair Path.
+
+solana-keygen new --outfile ~/<FILE_PATH> => To create a new keypair and store it in a file.
+
+At times you may need to check which keypair your configuration is pointed to. To view the publickey of the current keypair set in solana config, use the solana address command.
+=> solana address
+=> solana balance
+=> solana airdrop 2 
+// This commands will get/set the address, balance, airdrop of your solana config Keypair Path.
+
+
+ ** Important **
+cargo new --lib <PROJECT_DIRECTORY_NAME> =>  To Create a new project 
+cargo build-bpf => To build your Solana program
+solana program deploy  => When you are ready to deploy
