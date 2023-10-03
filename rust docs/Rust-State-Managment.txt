@@ -1,0 +1,1 @@
+iterator => It is loop but lazy. How it is lazy? It means that you have to call next() to move to the nre iteration. It's a fun part
